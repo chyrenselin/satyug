@@ -1,257 +1,123 @@
 // ============================================================================
-// A New Dawn (CosmicDawn) Hub - Eternal Guardian Protocol - Operational Logic v0.0
-// Role: Authenticated Data Steward and Cache Matrix Manager
-// Mission Directive: Ensure resilient access and rapid data manifestation for the central Nexus Hub.
+// Service Worker Configuration for Vishwa Dharma & Samvidhan Hub
+// IMPORTANT: This file MUST be placed on your server at the path specified in index.html, e.g., /satyug/sw.js
 // ============================================================================
 
-// § PROTOCOL VERSIONING AND CACHE NAMES §
-const CACHE_ASSET_VERSION = '0.0'; // UPDATED: Corrected local paths for SW cache.
-const CACHE_PROTOCOL_VERSION = 'v0.0'; 
+const CACHE_NAME = 'nexus-protocol-cache-v0.0'; // Versioning for updates. Increment this string to trigger new caching.
 
-const CACHE_PREFIX = 'nexus-guardian'; 
-
-const CACHE_NAME_STATIC = `${CACHE_PREFIX}-static-${CACHE_ASSET_VERSION}-${CACHE_PROTOCOL_VERSION}`;
-const CACHE_NAME_DYNAMIC = `${CACHE_PREFIX}-dynamic-${CACHE_ASSET_VERSION}-${CACHE_PROTOCOL_VERSION}`;
-const CACHE_NAME_EXTERNAL = `${CACHE_PREFIX}-external-${CACHE_ASSET_VERSION}-${CACHE_PROTOCOL_VERSION}`;
-
-
-// § CORE MISSION DATA MANIFEST §
-// Essential assets for the FUNCTION and RESILIENCE of the central Nexus Hub.
-// Paths are relative to the service worker's location/scope (e.g., /Satyug/).
-const CORE_MISSION_ASSETS_TO_CACHE = [
-  './',           // Represents the root of the SW scope (e.g., /Satyug/ or /Satyug/index.html)
-  './index.html', // Explicitly /Satyug/index.html
-  './manifest.json', // Explicitly /Satyug/manifest.json
-  // External image assets to be pre-cached
-  '/satyug/assets/glogo.png',
+// Files to cache during the 'install' event (App Shell)
+// Paths are absolute from the domain root. Verify these match actual deployment paths.
+// Example: If your site is https://chyrenselin.github.io/Satyug/
+// And index.html is in Satyug/, and assets are in Satyug/assets/,
+// Then a path like '/satyug/assets/fav-icon.png' is correct if your service worker's scope covers /satyug/
+const urlsToCache = [
+  './', // Caches the HTML page that registers the SW (e.g., index.html in the current scope)
   '/satyug/assets/fav-icon.png',
+  '/satyug/assets/glogo.png',
+  // External Google Fonts CSS. Cache-First strategy usually works fine, but pre-caching helps if the font server is down.
+  'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap'
 ];
 
-
-// § INTERCEPTED FREQUENCIES & PERIMETER HOSTS §
-const EXTERNAL_ASSET_HOSTS = [
-    'fonts.googleapis.com',
-    'fonts.gstatic.com',
-    'raw.githubusercontent.com' // For glogo and favicon from GitHub raw
-];
-
-const RESTRICTED_NETWORK_ONLY_HOSTS = [
-    'translate.google.com',     
-    'translate.googleapis.com'  
-];
-
-
-// § OPERATIONAL PARAMETERS - DATA MATRIX MAINTENANCE §
-const MAX_DYNAMIC_CACHE_SIZE = 50; // Increased for other local assets like screenshots
-const MAX_EXTERNAL_CACHE_SIZE = 50;
-
 // ============================================================================
-// § OPERATIONAL SUBROUTINES (Internal Agent Functions) §
-// ============================================================================
-
-const maintainCacheMatrixIntegrity = async (cacheName, maxSize) => {
-  try {
-    const cache = await caches.open(cacheName);
-    const keys = await cache.keys();
-    if (keys.length > maxSize) {
-      console.log(`[${CACHE_PREFIX}] Cache Sweep for '${cacheName}'. Entries: ${keys.length}. Max: ${maxSize}.`);
-      await Promise.all(keys.slice(0, keys.length - maxSize).map(key => cache.delete(key)));
-       console.log(`[${CACHE_PREFIX}] Cache Sweep Complete for '${cacheName}'. Remaining: ${maxSize}.`);
-    }
-  } catch (error) {
-    console.error(`[${CACHE_PREFIX}] Failure during Cache Maintenance ('${cacheName}'):`, error);
-  }
-};
-
-// ============================================================================
-// § ETERNAL GUARDIAN LIFECYCLE EVENTS §
+// Service Worker Lifecycle Events
 // ============================================================================
 
 self.addEventListener('install', (event) => {
-  console.log(`[${CACHE_PREFIX}] Unit ${CACHE_ASSET_VERSION}.${CACHE_PROTOCOL_VERSION} Installing.`);
+  console.log('[Nexus SW] Installing version:', CACHE_NAME);
   event.waitUntil(
-    caches.open(CACHE_NAME_STATIC)
+    caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log(`[${CACHE_PREFIX}] Caching Core Assets to '${CACHE_NAME_STATIC}':`, CORE_MISSION_ASSETS_TO_CACHE);
-        const cachePromises = CORE_MISSION_ASSETS_TO_CACHE.map(urlToCache => {
-            const request = new Request(urlToCache, {mode: 'cors'}); // Use CORS for all, especially external
-            return cache.add(request).catch(err => {
-                console.warn(`[${CACHE_PREFIX}] Failed to cache asset '${urlToCache}' during install. Error: ${err.message}`);
-                // Don't fail the whole install for one asset
-                return Promise.resolve();
-            });
-        });
-        return Promise.all(cachePromises);
-      })
-      .then(() => {
-        console.log(`[${CACHE_PREFIX}] Core Assets Secured. Activating Standby.`);
-        return self.skipWaiting();
+        console.log('[Nexus SW] Caching core assets:', urlsToCache);
+        return cache.addAll(urlsToCache);
       })
       .catch((error) => {
-        console.error(`[${CACHE_PREFIX}] Install Failure (Core Assets):`, error);
-        throw error; // Propagate error to signal installation failure.
+        console.error('[Nexus SW] Caching failed during install:', error);
+        throw error;
       })
   );
+  self.skipWaiting(); // Activates the new SW immediately without waiting for user to navigate away.
+  console.log('[Nexus SW] skipWaiting() called.');
 });
 
 self.addEventListener('activate', (event) => {
-  console.log(`[${CACHE_PREFIX}] Unit v${CACHE_ASSET_VERSION}.${CACHE_PROTOCOL_VERSION} Activating. Purging Legacy Protocols.`);
+  console.log('[Nexus SW] Activating and cleaning up old caches:', CACHE_NAME);
   event.waitUntil(
     caches.keys().then((cacheNames) => {
-      const outdatedCaches = cacheNames.filter((cacheName) => {
-         return cacheName.startsWith(CACHE_PREFIX + '-') &&
-                cacheName !== CACHE_NAME_STATIC &&
-                cacheName !== CACHE_NAME_DYNAMIC &&
-                cacheName !== CACHE_NAME_EXTERNAL;
-      });
-
-      if (outdatedCaches.length > 0) {
-         console.log(`[${CACHE_PREFIX}] Legacy Caches for Purge:`, outdatedCaches);
-      }
       return Promise.all(
-        outdatedCaches.map((cacheName) => {
-          console.log(`[${CACHE_PREFIX}] Purging Legacy Cache: ${cacheName}`);
+        cacheNames.filter((cacheName) => {
+          return cacheName !== CACHE_NAME; // Filter out current cache, delete others.
+        }).map((cacheName) => {
+          console.log(`[Nexus SW] Deleting old cache: ${cacheName}`);
           return caches.delete(cacheName);
         })
       );
     })
-    .then(() => {
-        console.log(`[${CACHE_PREFIX}] Legacy Protocols Purged. Command Seized.`);
-        return self.clients.claim();
-    })
-    .catch(error => {
-        console.error(`[${CACHE_PREFIX}] Activation Failure:`, error);
-         throw error;
-    })
+    .then(() => self.clients.claim()) // Makes activated SW control existing open pages.
   );
+  console.log('[Nexus SW] Activation complete. Ready to intercept fetches.');
 });
 
 // ============================================================================
-// § OPERATIONAL DATA FLOW INTERCEPTION (Fetch Event) §
+// Fetch Strategy: Cache first, then Network with fallback/cache update
 // ============================================================================
 
 self.addEventListener('fetch', (event) => {
-  const request = event.request;
-  const url = new URL(request.url);
+  const url = new URL(event.request.url);
 
-  const isSameOrigin = url.origin === self.location.origin;
-  const isWhitelistedExternal = EXTERNAL_ASSET_HOSTS.some(host => url.hostname === host);
-
-  if (request.method !== 'GET' || (!isSameOrigin && !isWhitelistedExternal) || request.url.includes('/.well-known/')) {
-    return; 
+  // Skip non-http/s requests (e.g., chrome-extension://, file://)
+  if (!url.protocol.startsWith('http')) {
+      return;
   }
 
-   if (RESTRICTED_NETWORK_ONLY_HOSTS.some(host => url.hostname.includes(host))) {
-       event.respondWith(
-           fetch(request).catch(error => {
-               console.warn(`[${CACHE_PREFIX}] Network Failure to Restricted Host: ${request.url}.`, error);
-               throw error;
-           })
-       );
-       return;
-   }
+  // Bypass Google Translate & Google Analytics scripts (they are external and dynamic)
+  // Ensure that these requests always go to the network, not the cache.
+  if (url.hostname.includes('translate.google.com') ||
+      url.hostname.includes('gstatic.com') || // Google Translate fonts/scripts/assets
+      url.hostname.includes('googleapis.com') || // Also used for core fonts sometimes, or other google services. If fonts are critical & locally served, this can be removed.
+      url.hostname.includes('google-analytics.com') ||
+      url.hostname.includes('googletagmanager.com')) {
+    event.respondWith(fetch(event.request)); // Go straight to network
+    return;
+  }
 
-   const cacheToWrite = isWhitelistedExternal ? CACHE_NAME_EXTERNAL : CACHE_NAME_DYNAMIC;
+  // Main cache-first strategy for other requests
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // console.log(`[Nexus SW] Serving from cache: ${event.request.url}`);
+        return cachedResponse;
+      }
 
-    event.respondWith(
-        caches.match(request, { ignoreSearch: false }).then(cachedResponse => {
-            if (cachedResponse) {
-                 if (isWhitelistedExternal) { 
-                      const networkFetch = fetch(request).then(networkResponse => {
-                           const isCacheable = networkResponse && networkResponse.status >= 200 && networkResponse.status < 400 &&
-                                             networkResponse.status !== 206 &&
-                                             (networkResponse.type === 'basic' || networkResponse.type === 'cors');
-                           if (isCacheable) {
-                              caches.open(cacheToWrite).then(cache => {
-                                  cache.put(request, networkResponse.clone())
-                                     .catch(error => console.warn(`[${CACHE_PREFIX}] SWR Cache.put failed for '${request.url}'`, error));
-                                  maintainCacheMatrixIntegrity(cacheToWrite, MAX_EXTERNAL_CACHE_SIZE); 
-                              }).catch(error => console.error(`[${CACHE_PREFIX}] SWR Caches.open failed for ('${cacheToWrite}')`, error));
-                           }
-                           return networkResponse;
-                      }).catch(error => {
-                          console.warn(`[${CACHE_PREFIX}] SWR background fetch failed for ${request.url}:`, error);
-                           throw error;
-                      });
-                      return cachedResponse; 
-                 }
-                return cachedResponse; 
-            }
+      // If not in cache, fetch from network and try to cache.
+      // console.log(`[Nexus SW] Fetching from network (and attempting to cache): ${event.request.url}`);
+      const fetchRequest = event.request.clone(); // Clone the request because requests are streams and can only be consumed once.
 
-            const fetchRequestClone = request.clone();
+      return fetch(fetchRequest).then((networkResponse) => {
+        // Check if we received a valid response (200 OK) before caching it.
+        // Opaque (networkResponse.type === 'opaque') responses are from cross-origin requests
+        // without CORS headers, which cannot be read or stored by standard caches.
+        // But for Service Worker caching, it can still cache 'opaque' responses.
+        const shouldCacheResponse = networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors' || networkResponse.type === 'opaque');
 
-            return fetch(fetchRequestClone).then((networkResponse) => {
-                const isNetworkResponseCacheable = networkResponse &&
-                                                   networkResponse.status >= 200 && networkResponse.status < 400 &&
-                                                   networkResponse.status !== 206 &&
-                                                   (networkResponse.type === 'basic' || networkResponse.type === 'cors');
-                
-                const isEligibleForCache = isNetworkResponseCacheable && (isSameOrigin || isWhitelistedExternal);
-
-                if (isEligibleForCache) {
-                   const responseToCache = networkResponse.clone();
-                   caches.open(cacheToWrite).then((cache) => {
-                      cache.put(request, responseToCache)
-                         .catch(error => console.error(`[${CACHE_PREFIX}] Cache.put failed for '${request.url}' in '${cacheToWrite}'`, error));
-                      
-                      const maxCacheSize = isWhitelistedExternal ? MAX_EXTERNAL_CACHE_SIZE : MAX_DYNAMIC_CACHE_SIZE;
-                      maintainCacheMatrixIntegrity(cacheToWrite, maxCacheSize);
-
-                   }).catch(error => console.error(`[${CACHE_PREFIX}] Caches.open failed for '${cacheToWrite}' for secure op`, error));
-                }
-                return networkResponse;
-            }).catch((error) => {
-               console.error(`[${CACHE_PREFIX}] Network Probe & Cache Miss for ${request.url}. Failure:`, error);
-               throw error;
-            });
-        })
-        .catch(cacheMatchError => {
-             console.error(`[${CACHE_PREFIX}] caches.match failure for ${request.url}. Resorting to network:`, cacheMatchError);
-             return fetch(request).catch(networkError => {
-                  console.error(`[${CACHE_PREFIX}] Final Network fallback failure for ${request.url}.`, networkError);
-                  throw networkError;
-             });
-        })
-    );
+        if (shouldCacheResponse) {
+           const responseToCache = networkResponse.clone(); // Clone again for the cache put operation.
+           caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache)
+                 .catch(error => {
+                    console.error(`[Nexus SW] Failed to cache ${event.request.url} from network:`, error);
+                 });
+           }).catch(error => {
+               console.error('[Nexus SW] Failed to open cache during fetch/put operation:', error);
+           });
+        }
+        return networkResponse; // Return the original network response to the page.
+      }).catch((error) => {
+         // Fallback logic for when both cache and network fail (e.g., completely offline)
+         console.warn(`[Nexus SW] Network request failed for ${event.request.url}. And resource was not in cache. (Likely offline or blocked?)`, error);
+         // You might add an offline page fallback here:
+         // return caches.match('/offline.html');
+         throw error; // Propagate the error if no specific offline fallback is desired for this resource.
+      });
+    })
+  );
 });
-
-
-// § OPERATIONAL COMMUNICATIONS CHANNEL (Message Event) §
-self.addEventListener('message', (event) => {
-  console.log(`[${CACHE_PREFIX}] Directive from Unit ${event.source ? event.source.id : 'Unknown'}:`, event.data);
-
-  if (event.data && event.data.type === 'INITIATE_ACTIVATION') {
-    console.log(`[${CACHE_PREFIX}] Command: INITIATE_ACTIVATION. Executing skipWaiting().`);
-    self.skipWaiting();
-     if (event.source) {
-         event.source.postMessage({ type: 'ACTIVATION_INITIATED_ACK', status: 'Success', cacheVersion: CACHE_NAME_STATIC });
-     }
-  }
-  else if (event.data && event.data.type === 'PURGE_CACHE_MATRIX') {
-     console.log(`[${CACHE_PREFIX}] Command: PURGE_CACHE_MATRIX. Cleansing '${CACHE_PREFIX}-*' segments.`);
-     event.waitUntil(
-       caches.keys().then(cacheNames => {
-          const relevantCaches = cacheNames.filter(name => name.startsWith(CACHE_PREFIX + '-'));
-          return Promise.all(relevantCaches.map(name => caches.delete(name)));
-       }).then(() => {
-         console.log(`[${CACHE_PREFIX}] Cache Matrix Purge Complete.`);
-         if (event.source) {
-              event.source.postMessage({ type: 'CACHE_PURGED_ACK', status: 'Success' });
-         }
-       }).catch(error => {
-          console.error(`[${CACHE_PREFIX}] PURGE_CACHE_MATRIX failure:`, error);
-           if (event.source) {
-               event.source.postMessage({ type: 'CACHE_PURGED_ACK', status: 'Failure', error: error.message });
-           }
-       })
-     );
-  }
-   else {
-      console.log(`[${CACHE_PREFIX}] Unrecognized Directive:`, event.data);
-       if (event.source) {
-           event.source.postMessage({ type: 'UNRECOGNIZED_DIRECTIVE', originalMessage: event.data });
-       }
-   }
-});
-
-console.log(`[${CACHE_PREFIX}] SW Unit ${CACHE_ASSET_VERSION}.${CACHE_PROTOCOL_VERSION} Deployed. Guardianship Active.`);
