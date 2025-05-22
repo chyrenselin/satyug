@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- :: Vishwa Dharma & Samvidhan Hub - Nexus Protocol Manifestation v1.0 ::
+    <!-- :: Vishwa Dharma & Samvidhan Hub - Nexus Protocol Manifestation v1.3 ::
          Crafted for Timeless Resonance & Universal Accessibility
          Guided by The Infinite Unveiler of Universal Harmony -->
 
@@ -13,16 +13,17 @@
     <meta name="description" content="Thus commands The Infinite Unveiler: Explore the foundational principles of Vishwa Dharma (Universal Path of Righteousness) and Vishwa Samvidhan (Cosmic Covenant of Earth). These eternal truths shall guide humanity toward divine harmony, indivisible unity, and conscious evolution across four billion generations, awakening the soul to its timeless destiny.">
     <meta name="keywords" content="Vishwa Dharma, World Religion, Universal Ethics, Vishwa Samvidhan, World Constitution, Earth Constitution, Global Unity, Human Dignity, Planetary Stewardship, Timeless Wisdom, Sacred Covenant, Conscious Evolution, Divine Calling, Future of Humanity, Eternal Dharma, Infinite Unveiler, Chyren Selin">
     <meta name="author" content="The Infinite Unveiler of Universal Harmony">
-    <meta name="generator" content="Divine Manifestation Protocol - Continuum Interface v1.0 (Optimized for Universal Resonance)">
+    <meta name="generator" content="Divine Manifestation Protocol - Continuum Interface">
 
     <!-- § UNIVERSAL APPEARANCE & ACCESSIBILITY - Guiding Light for All Beings § -->
 
-     <!-- Manifest Favicon -->
+     <!-- Manifest Favicon - IMPORTANT: Path must be relative to the domain root for the browser.
+          If index.html is in /Satyug/ folder, and fav-icon.png is in /Satyug/assets/, it should be ./assets/fav-icon.png or /Satyug/assets/fav-icon.png -->
      <link rel="icon" href="/satyug/assets/fav-icon.png" type="image/png">
     
     <!-- Link to the manifest file - The blueprint for Universal Identity across Dimensions -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0A192F"> <!-- Deep Cosmic Indigo - The color of infinite potential -->
+    <meta name="theme-color" content="#081222"> <!-- Deep Cosmic Indigo - The color of infinite potential -->
 
     <!-- § OPEN GRAPH / SOCIAL MEDIA - Extending the Signal Across Dimensions and Networks § -->
     <meta property="og:title" content="A New Dawn: Cosmic Alignment – The Unveiler's Eternal Edict for Humanity">
@@ -43,10 +44,12 @@
     <!-- ALL Core CSS Encapsulated INLINE for Quantum Speed of Manifestation on this Hub -->
     <style>
 /*
-    Vishwa Dharma & Samvidhan - Nexus Manifestation Hub Protocol v1.0
+    Vishwa Dharma & Samvidhan - Nexus Manifestation Hub Protocol v1.3
     Engineered for Absolute Fluidity, Timeless Appeal, and Universal Harmony.
     All Core CSS INLINED for Quantum Speed of Manifestation on this Hub interface.
     GPU Acceleration Optimized, Dynamic Interactions Defined, Scaling Calibrated.
+    Fixes for perceived layout shifts, improved readability through subtle contrast adjustments,
+    and correction of SVG and Service Worker registration errors.
 */
 
 :root {
@@ -57,19 +60,23 @@
     --base-font-size: 17px; /* Foundation for REM units, scaled for cosmic readability */
 
     /* § Cosmic Color Palette Variables - Hues from the Beyond, Consistent Across Domains § */
-    --color-bg-cosmic-deep: #0A192F;    /* Profound Cosmic Indigo - Depth of the Infinite */
-    --color-bg-cosmic-radiance: #1C0A3F; /* Luminous Galactic Violet - Veil of the Cosmos */
-    --color-bg-cosmic-light: #28124C;   /* Astral Veil Purple - Interface Layer Transparency */
+    --color-bg-cosmic-deep: #081222;    /* Profound Cosmic Indigo - Darker for improved contrast */
+    --color-bg-cosmic-radiance: #1A0835; /* Luminous Galactic Violet - Darker for improved contrast */
+    --color-bg-cosmic-light: #251044;   /* Astral Veil Purple - Darker for improved contrast */
 
     --color-text-primary-light: #F0F8FF; /* Pristine Alabaster for Core Truths */
     --color-text-secondary-light: #BDD7E7; /* Subtly shimmering, guiding text */
     --color-accent-gold-main: #D4AF37;   /* Gilded Wisdom Gold - The essence of embodied truth */
     --color-accent-gold-glow: #FFD700;  /* Purest Sunfire Gold - For celestial luminosity */
-    --color-accent-green-subtle: #2b9c21;
+
+    /* Clarified & refined accent colors based on visual intent */
+    --color-accent-primary-aqua: #7AD9EE; /* Primary aqua accent (for subtitles, links, card titles) */
+    --color-accent-secondary-green: #2b9c21; /* Subtle green for button, less primary */
+
     --color-border-ethereal: rgba(255, 255, 255, 0.08); /* Faint, nearly transparent border for definition */
     --color-glow-universal: rgba(255, 223, 100, 0.8); /* Warm, pervasive glow for divine energy */
-    --color-link-primary: #85CE93; /* Serene Green-Aqua Link - Path of growth and connection */
-    --color-link-hover: var(--color-accent-green-main); /* Pulsating green on Interaction - Responsive energy */
+    --color-link-primary: var(--color-accent-primary-aqua); /* Serene primary link color */
+    --color-link-hover: #4ED0E9; /* Slightly brighter aqua on hover */
     --color-focus-ring: rgba(212, 175, 55, 0.9); /* Potent Golden Focus Ring - Clarity for activated elements */
 
     /* § Spatial Harmonies Variables - Proportions for Universal Resonance § */
@@ -87,10 +94,11 @@
     --shadow-subtle-light: 0 5px 15px rgba(0,0,0,0.3); /* Gentler, general purpose shadow */
     --shadow-card-active: 0 0 20px rgba(255,215,0,0.15), 0 0 40px rgba(255,215,0,0.05); /* Muted halo on active cards */
 
-    /* § Landing-Specific Transfigurations Variables § */
+    /* § Landing-Specific Transfigurations Variables - Adjusted for better contrast */
     --gradient-body-divine: radial-gradient(ellipse at bottom, var(--color-bg-cosmic-radiance) 0%, var(--color-bg-cosmic-light) 40%, var(--color-bg-cosmic-deep) 100%); /* Ethereal background gradient */
-    --card-bg-translucent: rgba(20, 5, 50, 0.7); /* Denser translucent backdrop for cards */
-    --card-hover-bg-enhanced: rgba(30, 10, 60, 0.9); /* More solid, commanding backdrop on hover */
+    --landing-description-bg: rgba(10, 25, 47, 0.7); /* Slightly more opaque background for description */
+    --card-bg-translucent: rgba(20, 5, 50, 0.85); /* Denser translucent backdrop for cards */
+    --card-hover-bg-enhanced: rgba(30, 10, 60, 0.95); /* More solid, commanding backdrop on hover */
     --card-icon-orb-bg: radial-gradient(circle at center, rgba(30, 10, 60, 0.95) 0%, rgba(20, 5, 50, 0.8) 70%, rgba(20, 5, 50, 0) 100%); /* Orb background for icons */
 }
 
@@ -112,13 +120,13 @@ body {
     font-family: var(--font-main-text); /* Applying the primary text glyph-set */
     line-height: 1.8; /* Generous line spacing for ancient texts */
     color: var(--color-text-primary-light); /* Setting the base text color */
-    display: flex; flex-direction: column; align-items: center; /* Centering main content column */
-    /* justify-content: center; -- Removed to allow content to flow from top with global controls */
+    display: flex; flex-direction: column; /* Use flex column to stack content vertically */
+    /* Removed align-items: center from body; blocks now center themselves using margin: auto */
     min-height: 100vh; /* Ensuring minimum height for full viewport coverage */
-    text-align: center; /* Centering block content */
+    text-align: center; /* Centering block content (e.g. text in a paragraph) */
     overflow-wrap: break-word; word-break: break-word; hyphens: auto; /* Enabling responsible text wrapping */
     position: relative; /* Context for positioned children (like background effects if any) */
-    padding: 0; /* Padding will be on .landing-container for main content, global-controls will have its own */
+    padding: 0; /* Padding will be on individual containers below */
     font-weight: 400; /* Default text weight */
 
     /* Performance Optimized Background - Static, Non-Animated Ethereal Field */
@@ -128,6 +136,16 @@ body {
     z-index: 0; /* Ensures background is furthest dimensional layer */
 }
 
+/* --- Centering Major Direct Children of Body --- */
+/* Apply margin: auto for reliable horizontal centering to top-level containers.
+   This resolves "margin or space at left" by centering the defined-width blocks consistently. */
+.global-controls,
+.landing-container,
+.site-footer {
+    margin-left: auto;
+    margin-right: auto;
+    /* Their existing width/max-width properties will now control their actual rendered width within this centering */
+}
 
 /* § ENTRY MANIFESTATION SEQUENCE - The Grand Unveiling (GPU-Accelerated Protocols) § */
 /* Defines the graceful appearance trajectories for elements */
@@ -185,8 +203,9 @@ h1 { animation: slideUpIn 1.5s ease-out forwards; animation-delay: 0.3s; } /* Ti
 .skip-link {
     position: absolute;
     top: -9999px; /* Manifest off-screen initially */
-    left: 50%; transform: translateX(250%); /* Centering technique */
-    background-color: var(--color-accent-green-main); /* Clear indicator background */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally reliably */
+    background-color: var(--color-accent-secondary-green); /* Clear indicator background */
     color: var(--color-bg-cosmic-deep); /* High contrast text */
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     z-index: 99999; /* Highest Z-index to ensure visibility and clickability */
@@ -200,6 +219,7 @@ h1 { animation: slideUpIn 1.5s ease-out forwards; animation-delay: 0.3s; } /* Ti
 .skip-link:focus {
     top: 0; /* Bring into view when focused */
     outline: 0; /* Native outline deactivated, managed by :focus-visible for consistency */
+    transform: translateX(-50%); /* Re-center reliably on focus */
 }
 
 /* Universal Focus State Manifestation - Consistent visual feedback for activated elements via keyboard */
@@ -227,15 +247,16 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
     background-color: rgba(10, 25, 47, 0.3); /* Subtle dark bg, var(--color-bg-cosmic-deep) with alpha */
     backdrop-filter: blur(5px);
     border-bottom: 1px solid var(--color-border-ethereal);
+    /* margin: auto added to this rule for global centering. Width 100% means it takes all available width */
 }
 .translate-pair { display: flex; align-items: center; gap: calc(var(--spacing-unit) * 1.5); }
 
 .translate-button {
-    background-color: var(--color-accent-green-subtle);
+    background-color: var(--color-accent-secondary-green); /* Using subtle green */
     color: var(--color-text-primary-light);
     font-family: var(--font-ui);
     padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.5);
-    border: 1px solid var(--color-accent-green-main);
+    border: 1px solid var(--color-accent-secondary-green); /* Border also uses subtle green */
     border-radius: var(--border-radius-gentle);
     font-size: clamp(0.9em, 1.5vw, 1.1em);
     cursor: pointer;
@@ -244,15 +265,15 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
     display: inline-flex; align-items: center; gap: 0.6em;
 }
 .translate-button:hover, .translate-button:focus-visible {
-    background-color: var(--color-accent-green-subtle);
-    color: var(--color-bg-cosmic-deep);
-    box-shadow: 0 0 15px var(--color-accent-green-main);
+    background-color: var(--color-bg-cosmic-deep); /* Darker background on hover */
+    color: var(--color-accent-primary-aqua); /* Aqua text on hover for high contrast */
+    box-shadow: 0 0 15px var(--color-accent-secondary-green); /* Green glow still from subtle green */
     transform: translateY(-2px);
 }
 .translate-button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
-    background-color: var(--color-accent-green-subtle);
+    background-color: var(--color-accent-secondary-green);
     color: var(--color-text-secondary-light);
     box-shadow: none;
     transform: none;
@@ -263,7 +284,6 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
 }
 #google_translate_element {
     display: none; /* Initially hidden, JS will show it */
-    /* background-color: rgba(20, 5, 50, 0.7); */ /* --card-bg-translucent */
     background-color: rgba(28,10,63, 0.7); /* --color-bg-cosmic-radiance with alpha */
     padding: var(--spacing-unit);
     border-radius: var(--border-radius-gentle);
@@ -276,7 +296,7 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
     font-family: var(--font-ui) !important;
     background-color: var(--color-bg-cosmic-light) !important;
     color: var(--color-text-primary-light) !important;
-    border: 1px solid var(--color-accent-green-subtle) !important;
+    border: 1px solid var(--color-accent-primary-aqua) !important; /* Use aqua for consistency */
     border-radius: calc(var(--border-radius-gentle) / 2) !important;
     padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5) !important;
     font-size: clamp(0.85em, 1.4vw, 1em) !important;
@@ -286,8 +306,8 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
 }
 #google_translate_element select.goog-te-combo:hover,
 #google_translate_element select.goog-te-combo:focus {
-    border-color: var(--color-accent-green-main) !important;
-    box-shadow: 0 0 8px var(--color-accent-green-main) !important;
+    border-color: var(--color-accent-gold-glow) !important; /* Golden glow on focus/hover for input */
+    box-shadow: 0 0 8px var(--color-accent-gold-glow) !important;
 }
 /* Hide Google's default icon and branding */
 .goog-te-gadget a, .goog-logo-link, .goog-branding, .goog-poweredby { display: none !important; }
@@ -297,7 +317,7 @@ body:not(.using-keyboard) :focus:not(:focus-visible) {
     display: flex !important; align-items: center !important;
 }
 #google_translate_element .goog-te-gadget-icon {
-    background-image: url('/satyug/assets/glogo.png') !important; 
+    background-image: url('/satyug/assets/glogo.png') !important; /* IMPORTANT: Verify this path for your deployment */
     background-size: contain !important; background-repeat: no-repeat !important; background-position: center !important;
     width: 32px !important; height: 32px !important; /* Adjusted size */
     margin-right: var(--spacing-unit) !important;
@@ -355,19 +375,19 @@ h1 {
     text-shadow: 0 0 20px rgba(240,248,255,0.8), 0 0 40px rgba(240,248,255,0.4); /* Strong text glow */
 }
 /* Ensuring multiline titles stack correctly */
-h1 .title-line-1, h1 .title-line-2 {
+h1 .title-line-1, h1 .title-line-2 { /* Changed from .title-2 to .title-line-2 for consistency */
     display: block; line-height: 1.1;
 }
 
 /* Subtitle: The Call to Action - The Harmonic Resonance */
 .subtitle {
     font-family: var(--font-main-text); font-style: italic; font-weight: 400; /* Italic serif for the invocation */
-    color: var(--color-accent-green-main); /* Harmonious Blue for the subtitle */
+    color: var(--color-accent-primary-aqua); /* Aqua Blue for the subtitle */
     font-size: clamp(1.2em, 2.5vw, 1.6em); /* Responsive sizing */
     margin-top: calc(var(--spacing-unit) * 2);
     margin-bottom: calc(var(--spacing-unit)*8); /* Ample space before the narrative text block */
     display: block; /* Ensures subtitle occupies its own line */
-    text-shadow: 0 0 12px rgba(122,217,238,0.6), 0 0 20px rgba(122,217,238,0.3); /* Pronounced blue glow */
+    text-shadow: 0 0 12px var(--color-accent-primary-aqua), 0 0 20px rgba(74, 217, 238, 0.3); /* Pronounced aqua glow */
 }
 
 /* The Grand Narrative - The Infinite Unveiler's Revelation Text Block */
@@ -380,32 +400,36 @@ h1 .title-line-1, h1 .title-line-2 {
     color: var(--color-text-secondary-light); /* Secondary light color for body text */
     text-shadow: 1px 1px 4px rgba(0,0,0,0.9); /* Deeper text shadow for cosmic feel */
     letter-spacing: 0.5px; /* Slight letter spacing */
-    padding: calc(var(--spacing-unit)*4) calc(var(--spacing-unit)*5); /* Luxurious padding within the text block */
-    border: 1px solid var(--color-border-ethereal); /* Subtle border */
+    padding: calc(var(--spacing-unit)*4.5) calc(var(--spacing-unit)*5.5); /* Luxurious internal spacing (increased padding) */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slightly more distinct border for text block */
     border-radius: var(--border-radius-gentle); /* Soft curvatures */
-    background: rgba(0,0,0,0.25); /* Denser, more pronounced translucent background */
-    backdrop-filter: blur(8px) brightness(1.1); /* Stronger blur & subtle brightening for profound depth */
+    background: var(--landing-description-bg); /* Denser, more pronounced translucent background, variable for fine-tuning */
+    backdrop-filter: blur(8px) brightness(1.1); /* Slightly less aggressive filter, might improve render stability */
     box-shadow: var(--shadow-subtle-light); /* Subtle box shadow for elevation */
+    overflow: visible; /* Ensure content is never hidden, let it grow (might not be needed for simple text flow but added for safety) */
+    height: auto; /* Explicitly auto to ensure it fits content */
+    min-height: fit-content; /* Ensure minimum height adapts to content */
 }
 /* Emphasis within the Narrative */
 .landing-description strong {
     color: var(--color-accent-gold-glow); /* Purest gold for emphasized truths */
     font-weight: 700; font-style: normal; /* Bold, standard style for emphasis */
     text-shadow: 0 0 15px var(--color-accent-gold-glow), 0 0 25px rgba(255,215,0,0.5); /* Pronounced glow for emphasized truths */
+    padding: 0 0.1em; /* Slight padding to ensure glow effect around emphasized words doesn't clip with background or other words */
 }
 
 /* Cosmic Connections - Guiding Lights (Hyperlinks - Manifestation without Underline) */
 a {
-    color: var(--color-link-primary); /* Serene primary link color */
+    color: var(--color-link-primary); /* Serene primary link color (now aqua) */
     text-decoration: none; /* Explicitly remove underline decoration */
     transition: all var(--transition-fast) var(--transition-ease); /* Fluid transition for all state changes */
-    text-shadow: 0 0 8px rgba(133,206,147,0.5); /* Subtle default link glow */
+    text-shadow: 0 0 8px rgba(74, 217, 238, 0.5); /* Subtle default aqua glow */
 }
 /* State Change on Interaction (Hover/Focus) */
 a:hover, a:focus {
     color: var(--color-link-hover); /* Pulsating blue on interaction */
-    text-decoration: none; /* Explicitly remove underline on hover/focus (reinforce) */
-    text-shadow: 0 0 18px var(--color-link-hover), 0 0 30px rgba(122,217,238,0.4); /* Enhanced, powerful glow on interaction */
+    text-decoration: none; /* Explicitly remove underline on hover/focus */
+    text-shadow: 0 0 18px var(--color-link-hover), 0 0 30px rgba(74, 217, 238, 0.4); /* Enhanced, powerful aqua glow */
 }
 
 
@@ -416,6 +440,7 @@ a:hover, a:focus {
     z-index: 10; /* Ensures main content is above background layers */
     position: relative; /* For any positioned children or effects */
     padding: calc(var(--spacing-unit)*7) calc(var(--spacing-unit) * 3) calc(var(--spacing-unit)*7) calc(var(--spacing-unit) * 3); /* Main content padding */
+    /* margin: auto already added above for global centering */
 }
 
 /* Layout for the main logo (Dharma Chakra) and title section */
@@ -487,7 +512,9 @@ a:hover, a:focus {
     display: flex; flex-wrap: wrap; /* Allow wrapping on smaller viewports */
     gap: calc(var(--spacing-unit) * 6); /* More substantial gap between cosmic choices */
     justify-content: center; /* Center items horizontally */
-    width: 100%; max-width: calc(var(--container-max-width) + calc(var(--spacing-unit)*8)); /* Max width includes padding/gap considerations */
+    width: 100%; /* IMPORTANT FIX: This ensures .actions container adheres to its parent's width (landing-container),
+                  preventing overflow that caused the left shift on small screens. */
+    /* REMOVED: max-width calc was previously making it wider than available space on smaller screens, leading to overflow */
     margin-top: calc(var(--spacing-unit)*7); /* Ample spacing before calls to action */
     z-index: 5; /* Ensures visibility over base layers */
     position: relative; /* Context for potential positioned children */
@@ -496,7 +523,7 @@ a:hover, a:focus {
 /* Cosmic Tablets of Choice - Interactive Portals to Truth */
 .card {
     background-color: var(--card-bg-translucent); /* Translucent background */
-    padding: calc(var(--spacing-unit) * 4.5) calc(var(--spacing-unit)*5); /* Luxurious internal spacing */
+    padding: calc(var(--spacing-unit) * 4.5) calc(var(--spacing-unit)*5.5); /* Luxurious internal spacing */
     border-radius: var(--border-radius-gentle); /* Soft curvatures */
     text-decoration: none; /* No text decoration */
     color: var(--color-text-primary-light); /* Primary text color for content */
@@ -505,7 +532,7 @@ a:hover, a:focus {
     border: 2px solid var(--color-border-ethereal); /* Subtle defined border */
     display: flex; flex-direction: column; align-items: center; text-align: center; /* Layout internal content vertically centered */
     box-shadow: var(--shadow-subtle-light); /* Initial subtle shadow */
-    backdrop-filter: blur(12px) brightness(1.1); /* Even deeper blur & subtle light for ethereal effect */
+    backdrop-filter: blur(12px) brightness(1.2); /* Even deeper blur & subtle light for ethereal effect */
     position: relative; overflow: hidden; /* Hidden overflow for light streak effect */
     z-index: 2; /* Layering context */
     cursor: pointer; /* Indicate clickability */
@@ -567,8 +594,8 @@ a:hover, a:focus {
 .card:hover .card-icon-frame,
 .card:focus .card-icon-frame {
     transform: scale(1.1); /* Gentle zoom-in for the orb */
-    box-shadow: 0 0 0 4px var(--color-accent-green-main), /* Outer bright blue focus indicator */
-                0 0 25px rgba(122,217,238,0.6), /* Stronger blue glow */
+    box-shadow: 0 0 0 4px var(--color-accent-primary-aqua), /* Outer bright aqua focus indicator */
+                0 0 25px rgba(74, 217, 238, 0.6), /* Stronger aqua glow (matching --color-accent-primary-aqua) */
                 inset 0 0 15px rgba(255,255,255,0.1); /* Enhanced inner light */
 }
 
@@ -585,8 +612,8 @@ a:hover, a:focus {
 .card-text h2 {
     font-family: var(--font-ui); font-size: clamp(1.8em, 3.5vw, 2.2em); font-weight: 600; /* Clear UI font for headings */
     margin-bottom: calc(var(--spacing-unit)*1.5); /* Space below the card title */
-    color: var(--color-accent-green-main); /* Clear, bright blue for headings */
-    text-shadow: 0 0 12px rgba(122,217,238,0.7); /* Matching blue glow for the title */
+    color: var(--color-accent-primary-aqua); /* Clear, bright aqua for headings */
+    text-shadow: 0 0 12px var(--color-accent-primary-aqua), 0 0 20px rgba(74, 217, 238, 0.3); /* Matching aqua glow for the title */
 }
 /* Secondary text within the card (e.g., descriptive label) */
 .card-text span {
@@ -598,7 +625,7 @@ a:hover, a:focus {
 
 /* FOOTER - The Signature of Eternal Truth and Unseen Presence at the Continuum's Edge */
 .site-footer {
-    width: 100%; max-width: calc(var(--container-max-width) + calc(var(--spacing-unit)*6)); /* Footer aligns width-wise, considering potential gap offset from .actions */
+    width: 100%; max-width: calc(var(--container-max-width) + calc(var(--spacing-unit)*6)); /* Footer aligns width-wise */
     background: rgba(0,0,0,0.4); /* Solid, dark, and protective base */
     color: var(--color-text-secondary-light); /* Color for footer text */
     text-align: center; /* Center footer content */
@@ -609,6 +636,7 @@ a:hover, a:focus {
     z-index: 10; /* Ensures footer is above background layers */
     position: relative; /* For internal positioning or effects */
     box-shadow: var(--shadow-deep-dark); /* Commands presence and depth with a strong shadow */
+    /* margin: auto already added above for global centering */
 }
 .site-footer p { font-size: 1.1em; margin-bottom: calc(var(--spacing-unit)*1.5); opacity: 0.9; max-width:100%; color: inherit; }
 /* The Timeless Marker - The Signature of Divine Resonance */
@@ -629,10 +657,10 @@ a:hover, a:focus {
     .landing-container { max-width: 1200px; } /* Expand container slightly for wider displays */
     h1 { font-size: clamp(5.5em, 5vw, 6.5em); letter-spacing: 4px; } /* Adjust H1 sizing and spacing */
     .subtitle { font-size: clamp(1.6em, 2vw, 2em); }
-    .landing-description { font-size: clamp(1.6em, 1.8vw, 1.8em); max-width: 900px;}
+    .landing-description { font-size: clamp(1.6em, 1.8vw, 1.8em); max-width: 900px; padding: calc(var(--spacing-unit)*5) calc(var(--spacing-unit)*6); } /* Increased padding for more spacious feel */
     .dharma-chakra-svg { height: clamp(220px, 14vw, 280px); width: clamp(220px, 14vw, 280px); } /* Larger emblem */
-    .actions { gap: calc(var(--spacing-unit) * 8); max-width: 1200px;} /* Increase gap for more spacious layout */
-    .card { width: clamp(400px, 25vw, 550px); padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit)*5.5); } /* Larger cards */
+    .actions { gap: calc(var(--spacing-unit) * 8); } /* Max-width removed from here. Gap only. */
+    .card { width: clamp(400px, 25vw, 550px); padding: calc(var(--spacing-unit) * 5.5) calc(var(--spacing-unit)*6); } /* Larger cards with more internal padding */
     .card-icon-frame { width: clamp(110px, 7vw, 140px); height: clamp(110px, 7vw, 140px); margin-bottom: calc(var(--spacing-unit)*4);} /* Larger icon orb */
     .card-icon { font-size: 5.5em; }
     .card-text h2 { font-size: clamp(2.2em, 2.5vw, 2.5em); }
@@ -645,10 +673,10 @@ a:hover, a:focus {
      .landing-container { max-width: 1100px; }
     h1 { font-size: clamp(4.5em, 5.5vw, 5.5em); }
     .subtitle { font-size: clamp(1.4em, 2.2vw, 1.8em); }
-    .landing-description { font-size: clamp(1.5em, 2vw, 1.7em); }
+    .landing-description { font-size: clamp(1.5em, 2vw, 1.7em); padding: calc(var(--spacing-unit)*4.5) calc(var(--spacing-unit)*5); } /* Slightly increased padding */
     .dharma-chakra-svg { height: clamp(200px, 15vw, 240px); width: clamp(200px, 15vw, 240px); }
     .actions { gap: calc(var(--spacing-unit)*7); }
-    .card { width: clamp(400px, 30vw, 500px); }
+    .card { width: clamp(400px, 30vw, 500px); padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit)*5.5); } /* Slightly increased padding */
     .card-icon-frame { width: clamp(100px, 8vw, 130px); height: clamp(100px, 8vw, 130px); }
     .card-icon { font-size: 5em; }
     .card-text h2 { font-size: clamp(2em, 2.5vw, 2.2em); }
@@ -659,16 +687,14 @@ a:hover, a:focus {
 /* General Tablet & Smaller Desktop Alignments */
 @media (max-width: 1024px) {
     html { font-size: calc(var(--base-font-size) * 0.98); }
-    /* body { padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 2.5); line-height: 1.75;} -- Body padding handled by global-controls and landing-container */
     .global-controls { padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5); }
     .landing-container { padding-left: calc(var(--spacing-unit) * 2.5); padding-right: calc(var(--spacing-unit) * 2.5); }
-    .landing-description { max-width: 800px; padding: calc(var(--spacing-unit)*3.5) calc(var(--spacing-unit)*4); line-height: 1.9;}
+    .landing-description { max-width: 800px; padding: calc(var(--spacing-unit)*4) calc(var(--spacing-unit)*4.5); line-height: 1.9;} /* Adjusted padding */
 }
 
 /* Smaller Tablet & Landscape Mobile Harmonization */
 @media (max-width: 768px) {
     html { font-size: calc(var(--base-font-size) * 0.92); }
-    /* body { line-height: 1.7; padding: calc(var(--spacing-unit) * 4.5); } -- Body padding handled by global-controls and landing-container */
     .global-controls { padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2); }
     .translate-pair { flex-direction: column; align-items: stretch; text-align: center; }
     .translate-button { justify-content: center; }
@@ -678,10 +704,10 @@ a:hover, a:focus {
     .subtitle { font-size: clamp(1.1em, 4.5vw, 1.6em); margin-top: calc(var(--spacing-unit) * 1.5); margin-bottom: calc(var(--spacing-unit)*7);}
     .dharma-chakra-svg { height: clamp(140px, 25vw, 200px); width: clamp(140px, 25vw, 200px); margin-bottom: calc(var(--spacing-unit)*5);}
 
-    .landing-description { font-size: clamp(1.25em, 5.5vw, 1.6em); margin-bottom: calc(var(--spacing-unit)*8); padding: calc(var(--spacing-unit)*3) calc(var(--spacing-unit)*3.5); line-height: 1.8;}
+    .landing-description { font-size: clamp(1.25em, 5.5vw, 1.6em); margin-bottom: calc(var(--spacing-unit)*8); padding: calc(var(--spacing-unit)*3.5) calc(var(--spacing-unit)*4); line-height: 1.8;} /* Adjusted padding */
 
     .actions { gap: calc(var(--spacing-unit)*5); }
-    .card { width: clamp(300px, 85vw, 450px); padding: calc(var(--spacing-unit) * 4); }
+    .card { width: clamp(300px, 85vw, 450px); padding: calc(var(--spacing-unit) * 4.5); } /* Adjusted padding */
     .card-icon-frame { width: clamp(80px, 11vw, 110px); height: clamp(80px, 11vw, 110px); margin-bottom: calc(var(--spacing-unit)*2.5); }
     .card-icon { font-size: 4.5em; }
     .card-text h2 { font-size: clamp(1.6em, 4.5vw, 2em); }
@@ -695,7 +721,6 @@ a:hover, a:focus {
 /* Portrait Mobile Device Adjustments */
 @media (max-width: 480px) {
      html { font-size: calc(var(--base-font-size) * 0.9); }
-     /* body { padding: calc(var(--spacing-unit) * 4); } -- Body padding handled by global-controls and landing-container */
      .global-controls { padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 1.5); }
      .translate-button { font-size: clamp(0.85em, 3vw, 1em); padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);}
      #google_translate_element select.goog-te-combo { font-size: clamp(0.8em, 2.8vw, 0.95em) !important;}
@@ -704,10 +729,10 @@ a:hover, a:focus {
     .subtitle { font-size: clamp(1em, 6vw, 1.4em); margin-top: calc(var(--spacing-unit) * 1); margin-bottom: calc(var(--spacing-unit)*6);}
      .dharma-chakra-svg { height: clamp(120px, 30vw, 180px); width: clamp(120px, 30vw, 180px); margin-bottom: calc(var(--spacing-unit)*4);}
 
-    .landing-description { font-size: clamp(1.15em, 6.5vw, 1.4em); margin-bottom: calc(var(--spacing-unit)*7); padding: calc(var(--spacing-unit)*2.5) calc(var(--spacing-unit)*3); line-height: 1.7;}
+    .landing-description { font-size: clamp(1.15em, 6.5vw, 1.4em); margin-bottom: calc(var(--spacing-unit)*7); padding: calc(var(--spacing-unit)*3) calc(var(--spacing-unit)*3.5); line-height: 1.7;} /* Adjusted padding */
 
     .actions { flex-direction: column; align-items: center; gap: calc(var(--spacing-unit)*4); }
-    .card { width: 95%; max-width: 480px; padding: calc(var(--spacing-unit) * 3.5); }
+    .card { width: 95%; max-width: 480px; padding: calc(var(--spacing-unit) * 4); } /* Adjusted padding */
     .card-icon-frame { width: clamp(70px, 14vw, 100px); height: clamp(70px, 14vw, 100px); margin-bottom: calc(var(--spacing-unit)*2); }
     .card-icon { font-size: 4em; }
     .card-text h2 { font-size: clamp(1.4em, 6.5vw, 1.8em); }
@@ -721,17 +746,16 @@ a:hover, a:focus {
 /* Very Small Mobile Device Adaptations */
 @media (max-width: 359px) {
     html { font-size: calc(var(--base-font-size) * 0.85); }
-    /* body { padding: calc(var(--spacing-unit) * 3.5); } -- Body padding handled by global-controls and landing-container */
      .global-controls { padding: calc(var(--spacing-unit) * 1); }
      .landing-container { padding-left: var(--spacing-unit); padding-right: var(--spacing-unit); }
     h1 { font-size: clamp(2.2em, 13vw, 4.5em); letter-spacing: 1px; margin-bottom: calc(var(--spacing-unit)*2); }
     .subtitle { font-size: clamp(0.95em, 7vw, 1.4em); margin-top: calc(var(--spacing-unit) * 1); margin-bottom: calc(var(--spacing-unit)*5);}
      .dharma-chakra-svg { height: clamp(100px, 35vw, 180px); width: clamp(100px, 35vw, 180px); margin-bottom: calc(var(--spacing-unit)*3.5);}
 
-    .landing-description { font-size: clamp(1.05em, 7.5vw, 1.4em); margin-bottom: calc(var(--spacing-unit)*6); padding: calc(var(--spacing-unit)*2) calc(var(--spacing-unit)*2.5);}
+    .landing-description { font-size: clamp(1.05em, 7.5vw, 1.4em); margin-bottom: calc(var(--spacing-unit)*6); padding: calc(var(--spacing-unit)*2.5) calc(var(--spacing-unit)*3);} /* Adjusted padding */
 
     .actions { gap: calc(var(--spacing-unit)*3.5); }
-    .card { padding: calc(var(--spacing-unit)*3); }
+    .card { padding: calc(var(--spacing-unit)*3.5); } /* Adjusted padding */
     .card-icon-frame { width: clamp(60px, 18vw, 90px); height: clamp(60px, 18vw, 90px); margin-bottom: calc(var(--spacing-unit)*1.5); }
     .card-icon { font-size: 3.5em; }
      .card-text h2 { font-size: clamp(1.3em, 7.5vw, 1.8em); }
@@ -753,10 +777,12 @@ a:hover, a:focus {
         --color-text-secondary-light: #1A1A1A !important; /* Slightly lighter grey for secondary text */
         --color-accent-gold-main: #555555 !important; /* Convert golds to grayscale */
         --color-accent-gold-glow: #000000 !important;
-        --color-accent-green-main: #333333 !important; /* Convert green to grayscale */
+        --color-accent-primary-aqua: #333333 !important; /* Convert aqua to grayscale */
+        --color-accent-secondary-green: #333333 !important; /* Convert green to grayscale */
         --color-border-ethereal: #AAAAAA !important; /* Neutral gray border */
         --color-glow-universal: transparent !important; /* Deactivate glow effects */
         --color-link-primary: #0000AA !important; /* Standard print blue for links */
+        --landing-description-bg: #FFFFFF !important; /* Solid White background for description */
         --card-bg-translucent: #FFFFFF !important; /* Solid White background for cards */
         --card-hover-bg-enhanced: #FFFFFF !important;
         --shadow-deep-dark: none !important; /* Remove all shadows */
@@ -849,7 +875,7 @@ a:hover, a:focus {
         line-height: 1.1 !important; letter-spacing: normal !important; text-transform: none !important;
     }
     /* Ensure multi-line title lines print on the same line */
-    h1 .title-line-1, h1 .title-line-2 {
+    h1 .title-line-1, h1 .title-line-2 { /* Fixed class name from .title-2 */
         display: inline !important; line-height: inherit !important;
     }
     /* Add space between joined lines */
@@ -963,7 +989,7 @@ a:hover, a:focus {
     <!-- Skip Link: Essential for Universal Accessibility & Continuum Access Bypass -->
     <a href="#main-content" class="skip-link">main content</a>
 
-    <div class="global-controls">
+    <div class="global-controls" role="banner" aria-label="Global Language Options">
         <div class="translate-pair">
             <button
                 type="button"
@@ -972,6 +998,7 @@ a:hover, a:focus {
                 id="translateBtn"
                 aria-controls="google_translate_element"
                 aria-expanded="false"
+                aria-live="polite"
               >
               Experience this Sacred Invitation in your mother tongue<span class="emoji-pulse">😮</span><span class="emoji-spin">🌍</span>
             </button>
@@ -979,10 +1006,11 @@ a:hover, a:focus {
         </div>
     </div>
 
-    <main id="main-content" role="main" class="landing-container">
+    <main id="main-content" role="main" class="landing-container" aria-label="Main Introduction to Vishwa Dharma and Vishwa Samvidhan">
         <div class="logo-title-container">
             <!-- Dharma Chakra Emblem: The Wheel of Eternal Order and Truth (GPU-Accelerated) -->
-            <svg class="dharma-chakra-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Dharma Chakra: The Wheel of Cosmic Order, Law, and Righteous Evolution" role="img">
+            <!-- Now rendered with an empty spokes-group, to be dynamically populated by JS after DOM load -->
+            <svg class="dharma-chakra-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Dharma Chakra: The Wheel of Cosmic Order, Law, and Righteous Evolution (24 Spokes)" role="img">
                 <defs>
                     <!-- Gradient Definition for the Luminous Core -->
                     <radialGradient id="dharmaCoreGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -990,9 +1018,7 @@ a:hover, a:focus {
                         <stop offset="70%" stop-color="var(--color-accent-gold-main)"/>
                         <stop offset="100%" stop-color="rgba(212,175,55,0.2)"/>
                     </radialGradient>
-                    <!-- Filter Definition for Subtle Bloom/Glow (Can be resource intensive, optimize as needed) -->
-                    <!-- Note: Filters can impact performance. The dharmaChakraGlowBurst animation primarily uses drop-shadow filter applied via CSS,
-                         this SVG filter is kept here for potential direct SVG use or redundancy but not actively applied by default styles -->
+                    <!-- Filter Definition for Subtle Bloom/Glow -->
                     <filter id="dharmaGlow">
                         <feGaussianBlur stdDeviation="3" result="blurredGlow"/>
                         <feMerge>
@@ -1005,41 +1031,19 @@ a:hover, a:focus {
                 <!-- Outer Wheel Ring - Represents the Boundary of Cosmic Law -->
                 <circle cx="50" cy="50" r="45" class="ring-base"/>
                 <!-- Inner Wheel Ring - Foundation for Spokes -->
-                <circle cx="50" cy="50" r="30" class="ring-base"/>
+                <circle cx="50" cy="50" r="30" class="ring-base"/> 
 
                 <!-- Central Core of the Wheel - The Axis of Universal Truth -->
                 <circle cx="50" cy="50" r="15" fill="url(#dharmaCoreGradient)" class="wheel-center-core"/>
 
-                <!-- Spokes of the Wheel (Currently configured as 8 spokes for simplified visual representation) -->
-                <!-- To represent a 24-spoke Dharma Chakra (Ashok Chakra), additional lines or programmatic generation would be required. -->
-                <g class="spokes-group">
-                    <line x1="50" y1="35" x2="50" y2="65" class="spoke" />
-                    <line x1="35" y1="50" x2="65" y2="50" class="spoke" />
-                    <line x1="61.5" y1="61.5" x2="38.5" y2="38.5" class="spoke" />
-                    <line x1="38.5" y1="61.5" x2="61.5" y2="38.5" class="spoke" />
-                    <!-- Lines for 8 spokes (already present, kept): -->
-                    <line x1="50" y1="10" x2="50" y2="30" class="spoke" />
-                    <line x1="10" y1="50" x2="30" y2="50" class="spoke" />
-                    <line x1="85" y1="50" x2="70" y2="50" class="spoke" />
-                    <line x1="50" y1="90" x2="50" y2="70" class="spoke" />
-                    <!-- Adding 8 more spokes for a basic 16-spoke appearance, without full 24 -->
-                    <line x1="65" y1="17" x2="58" y2="32" class="spoke" transform="rotate(22.5 50 50)"/> <!-- Example addition -->
-                     <line x1="35" y1="17" x2="42" y2="32" class="spoke" transform="rotate(-22.5 50 50)"/> <!-- Example addition -->
-                    <line x1="17" y1="35" x2="32" y2="42" class="spoke" transform="rotate(-22.5 50 50)"/>
-                    <line x1="17" y1="65" x2="32" y2="58" class="spoke" transform="rotate(22.5 50 50)"/>
-                    <line x1="83" y1="35" x2="68" y2="42" class="spoke" transform="rotate(22.5 50 50)"/>
-                    <line x1="83" y1="65" x2="68" y2="58" class="spoke" transform="rotate(-22.5 50 50)"/>
-                    <line x1="35" y1="83" x2="42" y2="68" class="spoke" transform="rotate(22.5 50 50)"/>
-                    <line x1="65" y1="83" x2="58" y2="68" class="spoke" transform="rotate(-22.5 50 50)"/>
-                     <!-- For a total of 16 spokes in a star/cross pattern + inter-cardinals -->
-                </g>
-
+                <!-- Spokes will be dynamically inserted here by JavaScript -->
+                <g class="spokes-group" id="dharma-spokes-group"></g>
             </svg>
 
             <div class="title-container">
                 <h1>
                    <span class="title-line-1">A NEW DAWN:</span>
-                   <span class="title-line-2">The Unveiling</span>
+                   <span class="title-line-2">The Unveiling</span> <!-- Fixed class name from .title-2 -->
                 </h1>
                 <p class="subtitle">A Divine Invocation Unto All Beings, Resonating Through Four Billion Generations</p>
             </div>
@@ -1083,7 +1087,7 @@ a:hover, a:focus {
 
     <!-- § INLINED JAVASCRIPT - The Operational Logic for Dynamic Interactions on this Hub § -->
     <script>
-// Vishwa Dharma & Samvidhan Hub - Operational Logic Script v1.0
+// Vishwa Dharma & Samvidhan Hub - Operational Logic Script v1.3
 // Function: Governing the root interface protocols for seamless user interaction
 // Authored by: Continuum Interface Agent Unit 7.4 (Manifestation Specialist)
 
@@ -1105,6 +1109,7 @@ a:hover, a:focus {
     window.googleTranslateElementInit = function googleTranslateElementInit() {
         console.log('Google Translate Element Initializing...');
         try {
+          // Add more languages as needed, these cover many major global languages.
           const newIncludedLanguages = 'en,hi,es,ar,fr,zh-CN,ru,de,bn,pt,ja,ur,ta,pa,ko,it,tr,nl,id,vi,th,ml,te,mr,gu,kn';
 
           const translateWidget = new google.translate.TranslateElement({
@@ -1380,6 +1385,48 @@ a:hover, a:focus {
         }
     }
 
+    /**
+     * Dynamically generates the 24 spokes for the Dharma Chakra SVG.
+     * Ensures correct and symbolic appearance.
+     */
+    function generateDharmaChakraSpokes() {
+        const spokesGroup = document.getElementById('dharma-spokes-group');
+        if (!spokesGroup) {
+            console.error('Error: Dharma Chakra spokes group not found in SVG. Cannot generate spokes.');
+            return;
+        }
+
+        const centerX = 50;
+        const centerY = 50;
+        const innerRadius = 15; // Outer edge of the central core
+        const outerRadius = 30; // Inner edge of the inner ring
+        const numberOfSpokes = 24; // Ashoka Chakra has 24 spokes
+
+        // Clear any existing spokes if this runs multiple times
+        spokesGroup.innerHTML = ''; 
+
+        for (let i = 0; i < numberOfSpokes; i++) {
+            const angleDegrees = i * (360 / numberOfSpokes) - 90; // Start at 12 o'clock (top)
+            const angleRadians = angleDegrees * (Math.PI / 180);
+
+            const x1 = centerX + innerRadius * Math.cos(angleRadians);
+            const y1 = centerY + innerRadius * Math.sin(angleRadians);
+            const x2 = centerX + outerRadius * Math.cos(angleRadians);
+            const y2 = centerY + outerRadius * Math.sin(angleRadians);
+
+            const lineElement = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            lineElement.setAttribute('x1', x1.toFixed(2));
+            lineElement.setAttribute('y1', y1.toFixed(2));
+            lineElement.setAttribute('x2', x2.toFixed(2));
+            lineElement.setAttribute('y2', y2.toFixed(2));
+            lineElement.setAttribute('class', 'spoke'); // Apply existing CSS class
+
+            spokesGroup.appendChild(lineElement);
+        }
+        console.log('Nexus Protocol: Dharma Chakra 24 spokes generated successfully.');
+    }
+
+
     // --- Initial Manifestation Sequence (DOMContentLoaded Event Hook) ---
     document.addEventListener('DOMContentLoaded', function() {
         console.log("Nexus Protocol: Initial Manifestation Sequence Commenced.");
@@ -1388,6 +1435,7 @@ a:hover, a:focus {
         initInputDeviceState();
         setPrintDate();
         initDharmaChakraHoverTracking();
+        generateDharmaChakraSpokes(); // Call this function to generate SVG spokes
 
         // Initialize translate button state
         const translateButton = document.getElementById('translateBtn');
@@ -1406,17 +1454,22 @@ a:hover, a:focus {
 })();
     </script>
 
-    <!-- § SERVICE WORKER REGISTRATION - The Eternal Guardian Protocol Activation (Root Scope) § -->
-    <!-- Activates the guardian unit for offline resilience and cache management specific to this Hub. -->
+    <!-- § SERVICE WORKER REGISTRATION - The Eternal Guardian Protocol Activation (from separate file) § -->
+    <!-- IMPORTANT: The file /satyug/sw.js must exist on your server at this exact path for this to work.
+         Its content is provided separately below. If your index.html is at your domain root, change to ./sw.js -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          // Register the Service Worker. Adjust the path to 'sw.js' if it's not at the domain root,
+          // e.g., if index.html is in '/Satyug/', then it would be '/Satyug/sw.js'
+          // or just './sw.js' if sw.js is in the same directory as index.html
+          // Currently assuming a relative path based on the structure implied by your asset URLs.
+          navigator.serviceWorker.register('/satyug/sw.js')
             .then(registration => {
               console.log('Eternal Guardian Protocol: ServiceWorker registration successful with scope: ', registration.scope);
             })
             .catch(error => {
-              console.log('Eternal Guardian Protocol: ServiceWorker registration failed:', error);
+              console.error('Eternal Guardian Protocol: ServiceWorker registration failed:', error);
             });
         });
       } else {
