@@ -906,7 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
        // Use the 'load' event to ensure the page is fully loaded before registering.
        // This reduces the chance of the SW interfering with critical initial fetches.
        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/VishwadharmGranth/sw.js') // Register sw.js from the project subdirectory
+        navigator.serviceWorker.register('/satyug/vishwadharm/sw.js') // Register sw.js from the project subdirectory
           .then(registration => {
             console.log('Service Worker registered with scope:', registration.scope);
             // Optional: Listen for updates if you implement cache-updating strategies
