@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A New Dawn | The Unveiling</title>
+  
+  <meta name="description" content="A Divine Invocation from The Infinite Unveiler. Explore Vishwa Dharma and Vishwa Samvidhan—the sacred principles for a new era of harmony and conscious stewardship of Earth for four billion generations.">
+  <meta name="keywords" content="Vishwa Dharma, Vishwa Samvidhan, Satyug, Golden Age, Cosmic Covenant, Universal Ethics, Earth Constitution, Conscious Evolution, Infinite Unveiler">
+  <meta name="author" content="The Infinite Unveiler of Universal Harmony">
+  <link rel="icon" href="/satyug/assets/fav-icon.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+
+  <style type="text/css">
+    /* --- Base Tailwind CSS (No changes here) --- */
+    *,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}
+    html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter,sans-serif}
+    body{margin:0;line-height:inherit}
+    h1,h2,h3,p{margin:0}
+    svg{display:block;vertical-align:middle}
+    button,input,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+    button,input[type=checkbox]{-webkit-appearance:button;background-color:transparent;background-image:none}
+    :-moz-focusring{outline:auto}
+    h1,h2,h3{font-size:inherit;font-weight:inherit}
+    a{color:inherit;text-decoration:inherit}
+    button{cursor:pointer}
+    .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .absolute{position:absolute}
+    .relative{position:relative}
+    .fixed{position:fixed}
+    .inset-0{top:0;right:0;bottom:0;left:0}
+    .z-10{z-index:10}
+    .z-50{z-index:50}
+    .mx-auto{margin-left:auto;margin-right:auto}
+    .mt-12{margin-top:3rem}
+    .mt-16{margin-top:4rem}
+    .mt-2{margin-top:.5rem}
+    .mt-24{margin-top:6rem}
+    .mt-4{margin-top:1rem}
+    .mt-5{margin-top:1.25rem}
+    .mt-6{margin-top:1.5rem}
+    .mt-8{margin-top:2rem}
+    .ml-4{margin-left:1rem}
+    .mb-8{margin-bottom:2rem}
+    .mb-16{margin-bottom:4rem}
+    .flex{display:flex}
+    .h-20{height:5rem}
+    .h-5{height:1.25rem}
+    .h-8{height:2rem}
+    .h-9{height:2.25rem}
+    .h-screen{height:100vh}
+    .min-h-screen{min-height:100vh}
+    .w-20{width:5rem}
+    .w-5{width:1.25rem}
+    .w-8{width:2rem}
+    .w-9{width:2.25rem}
+    .w-full{width:100%}
+    .max-w-screen-lg{max-width:1024px}
+    .max-w-xl{max-width:36rem}
+    .max-w-4xl{max-width:56rem}
+    .max-w-3xl{max-width:48rem}
+    .flex-shrink-0{flex-shrink:0}
+    .flex-col{flex-direction:column}
+    .items-center{align-items:center}
+    .items-start{align-items:flex-start}
+    .justify-center{justify-content:center}
+    .gap-4{gap:1rem}
+    .gap-12{gap:3rem}
+    .space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}
+    .rounded-2xl{border-radius:1rem}
+    .rounded-full{border-radius:9999px}
+    .rounded-lg{border-radius:.5rem}
+    .border{border-width:1px}
+    .border-2{border-width:2px}
+    .border-t{border-top-width:1px}
+    .border-gold\/20{border-color:rgba(255,215,0,.2)}
+    .border-gold\/30{border-color:rgba(255,215,0,.3)}
+    .bg-black{background-color:#000}
+    .bg-gold{background-color:#ffd700}
+    .p-3{padding:0.75rem}
+    .p-4{padding:1rem}
+    .p-6{padding:1.5rem}
+    .p-8{padding:2rem}
+    .px-6{padding-left:1.5rem;padding-right:1.5rem}
+    .py-12{padding-top:3rem;padding-bottom:3rem}
+    .py-24{padding-top:6rem;padding-bottom:6rem}
+    .py-32{padding-top:8rem;padding-bottom:8rem}
+    .pt-16{padding-top:4rem}
+    .pt-24{padding-top:6rem}
+    .text-center{text-align:center}
+    .text-left{text-align:left}
+    .font-serif{font-family:Cormorant Garamond,serif}
+    .text-3xl{font-size:1.875rem;line-height:2.25rem}
+    .text-5xl{font-size:3rem;line-height:1}
+    .text-6xl{font-size:3.75rem;line-height:1}
+    .text-lg{font-size:1.125rem;line-height:1.75rem}
+    .text-sm{font-size:.875rem;line-height:1.25rem}
+    .text-xl{font-size:1.25rem;line-height:1.75rem}
+    .text-2xl{font-size:1.5rem;line-height:2rem}
+    .text-xs{font-size:.75rem;line-height:1rem}
+    .font-bold{font-weight:700}
+    .font-semibold{font-weight:600}
+    .uppercase{text-transform:uppercase}
+    .italic{font-style:italic}
+    .not-italic{font-style:normal}
+    .leading-relaxed{line-height:1.625}
+    .leading-loose{line-height:2}
+    .tracking-widest{letter-spacing:.1em}
+    .text-black{color:#000}
+    .text-white{color:#fff}
+    .text-white\/60{color:hsla(0,0%,100%,.6)}
+    .text-white\/70{color:hsla(0,0%,100%,.7)}
+    .text-white\/80{color:hsla(0,0%,100%,.8)}
+    .text-white\/90{color:hsla(0,0%,100%,.9)}
+    .underline{text-decoration-line:underline}
+    .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+    .duration-300{transition-duration:.3s}
+    .grid{display:grid}
+    .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+    .scroll-smooth{scroll-behavior:smooth}
+    @media (min-width:768px){.md\:flex-row{flex-direction:row}.md\:p-12{padding:3rem}.md\:text-8xl{font-size:6rem;line-height:1}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (min-width:1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+    /* --- Custom & Merged Styles --- */
+    body { background-color: #000; color: #EAEAEA; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    #vanta-bg { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+    .font-serif { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #FFD700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 5px rgba(255, 215, 0, 0.7); }
+    .glass-pane { background: rgba(10, 10, 10, 0.3); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255, 215, 0, 0.2); }
+    .cosmic-input { background-color: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 215, 0, 0.3); color: #FFFFFF; transition: all 0.2s ease-in-out; }
+    .cosmic-input:focus { outline: none; border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+    .cosmic-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+    .cosmic-checkbox { background-color: transparent; border: 2px solid rgba(255, 215, 0, 0.5); color: #FFD700; }
+    .cosmic-checkbox:checked { background-color: #FFD700; }
+    #translator-container { width: 100%; max-width: 56rem; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; margin-bottom: 2rem; }
+    .translate-pair { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+    .translate-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.875rem; color: rgba(255, 255, 255, 0.9); background: rgba(30, 30, 30, 0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 0.5rem; transition: all 0.3s ease-in-out; text-align: center; }
+    .translate-button:hover { background: rgba(50, 50, 50, 0.5); border-color: rgba(255, 215, 0, 0.5); color: #fff; }
+    .translate-button:disabled { cursor: not-allowed; opacity: 0.6; }
+    .emoji-spin { display: inline-block; animation: spin 4s linear infinite; }
+    .emoji-pulse { display: inline-block; animation: pulse 1.5s ease-in-out infinite; }
+    .emoji-sandclock { display: inline-block; animation: sandclock-tilt 2s ease-in-out infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    @keyframes sandclock-tilt { 0%, 100% { transform: rotateZ(0deg); } 25% { transform: rotateZ(10deg); } 75% { transform: rotateZ(-10deg); } }
+    #google_translate_element { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: rgba(10, 10, 10, 0.3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 0.5rem; }
+    .google-translate-hidden { display: none !important; }
+    #google_translate_element select.goog-te-combo { background-color: rgba(0, 0, 0, 0.5) !important; border: 1px solid rgba(255, 215, 0, 0.3) !important; color: #FFFFFF !important; padding: 0.5rem 0.75rem !important; border-radius: 0.375rem !important; font-family: 'Inter', sans-serif !important; font-size: 0.875rem !important; transition: all 0.2s ease-in-out !important; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important; background-position: right 0.5rem center !important; background-repeat: no-repeat !important; background-size: 1.5em 1.5em !important; padding-right: 2.5rem !important; }
+    #google_translate_element select.goog-te-combo:focus { outline: none !important; border-color: rgba(255, 215, 0, 0.8) !important; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important; }
+    .goog-te-gadget a, .goog-logo-link, .goog-branding, .goog-poweredby { display: none !important; }
+    .goog-te-gadget-icon { background-image: url('glogo.png') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: contain !important; display: inline-block !important; width: 28px !important; height: 28px !important; vertical-align: middle !important; }
+    #google_translate_element .goog-te-gadget-simple { background: transparent !important; border: none !important; padding: 0 !important; margin: 0 !important; }
+    iframe.goog-te-banner-frame, iframe.VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; visibility: hidden !important; height: 0 !important; width: 0 !important; position: absolute !important; top: -9999px !important; left: -9999px !important; overflow: hidden !important; border: none !important; margin: 0 !important; padding: 0 !important; }
+    .goog-tooltip, div[id^='goog-gt-tt'], .VIpgJd-yAWNEb-tooltip, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; visibility: hidden !important; position: absolute !important; top: -9999px !important; left: -9999px !important; }
+    html.translated-ltr, html.translated-rtl { margin-top: 0 !important; padding-top: 0 !important; }
+    html.translated-ltr body, html.translated-rtl body { margin-top: 0 !important; padding-top: 0 !important; top: 0px !important; }
+    font[style*="vertical-align: inherit;"], .VIpgJd-yAWNEb-VIpgJd-fm, .goog-text-highlight { background: transparent !important; color: inherit !important; box-shadow: none !important; border: none !important; }
+    
+    /* Responsive & Optimization Overhaul */
+    :root {
+      --font-size-h1: clamp(2.5rem, 10vw, 6rem);
+      --font-size-h2: clamp(2rem, 8vw, 3.75rem);
+      --font-size-h3: clamp(1.5rem, 6vw, 2.25rem);
+      --font-size-xl: clamp(1.1rem, 4vw, 1.25rem);
+      --font-size-lg: clamp(1rem, 3.5vw, 1.125rem);
+      --font-size-base: clamp(0.9rem, 3vw, 1rem);
+      --font-size-sm: clamp(0.8rem, 2.5vw, 0.875rem);
+    }
+    .text-6xl, .md\:text-8xl { font-size: var(--font-size-h1); }
+    .text-5xl, .md\:text-6xl { font-size: var(--font-size-h2); }
+    .text-3xl, .md\:text-5xl { font-size: var(--font-size-h3); }
+    .text-xl, .md\:text-xl { font-size: var(--font-size-xl); }
+    .text-lg { font-size: var(--font-size-lg); }
+    p, .text-sm, .text-base { font-size: var(--font-size-base); }
+    .py-32 { padding-top: clamp(4rem, 20vh, 8rem); padding-bottom: clamp(4rem, 20vh, 8rem); }
+    .py-24 { padding-top: clamp(3rem, 15vh, 6rem); padding-bottom: clamp(3rem, 15vh, 6rem); }
+    @media (max-width: 768px) {
+      .translate-pair { flex-direction: column; }
+      .gap-12 { gap: 2rem; }
+      .grid-cols-1.md\:grid-cols-2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+      .lg\:grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .px-6 { padding-left: 1rem; padding-right: 1rem; }
+      .p-8 { padding: 1.5rem; }
+      .md\:p-12 { padding: 1.5rem; }
+      .lg\:grid-cols-4 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+      .cosmic-input, button[type="submit"] { padding: 0.9rem; font-size: var(--font-size-base); }
+      .cosmic-input.h-24 { height: 5rem; }
+    }
+    @media (max-width: 360px) {
+      .px-6 { padding-left: 0.75rem; padding-right: 0.75rem; }
+      p, .text-sm, .text-base { line-height: 1.6; }
+      .translate-button { padding: 0.5rem 0.8rem; font-size: var(--font-size-sm); }
+    }
+
+    /* Styles for Pledge Overlay & Button */
+    #pledge-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; padding: 1rem; }
+    #pledge-overlay.is-visible { opacity: 1; visibility: visible; transition: opacity 0.5s ease-in-out; }
+    #close-pledge-btn { position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; background: rgba(0,0,0,0.3); color: white; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); font-size: 1.5rem; line-height: 1; z-index: 110; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    #open-pledge-btn { display: inline-block; background-color: #ffd700; color: #000; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.2rem; padding: 0.8rem 1.5rem; border-radius: 0.5rem; text-shadow: none; transition: all 0.3s ease; transform: scale(1); }
+    #open-pledge-btn:hover { background-color: #fff; transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.5); }
+    .pledge-container { background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; max-width: 36rem; max-height: 90vh; overflow-y: auto; }
+    
+    /* --- NEW & IMPROVED Icon Styles --- */
+    .pillar-item, .philosophy-item {
+        cursor: default; /* For parent items */
+    }
+    .pillar-item > a, .philosophy-item > a {
+        cursor: pointer; /* For links inside */
+    }
+    .icon-orb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem; /* w-20 */
+        height: 5rem; /* h-20 */
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 9999px; /* rounded-full */
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.0) 70%);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), inset 0 0 10px rgba(0,0,0,0.3);
+        transition: all 0.3s ease-in-out;
+    }
+    .pillar-item:hover .icon-orb, .philosophy-item:hover .icon-orb {
+        transform: translateY(-5px);
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 70%);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(0,0,0,0.2);
+    }
+    .icon-svg {
+        height: 2.5rem; /* h-10 */
+        width: 2.5rem; /* w-10 */
+        color: #ffd700; /* text-gold */
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+        transition: all 0.3s ease-in-out;
+    }
+    .pillar-item:hover .icon-svg, .philosophy-item:hover .icon-svg {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+        transform: scale(1.1);
+    }
+
+    @media (min-width: 768px) {
+        .pledge-container { padding: 3rem; }
+        #open-pledge-btn { font-size: 1.5rem; padding: 1rem 2.5rem; }
+        #close-pledge-btn { top: 2rem; right: 2rem; width: 3rem; height: 3rem; font-size: 2rem; }
+    }
+    
+    /* Print Styles */
+    @media print {
+        body { background: #fff !important; color: #000 !important; font-family: 'Georgia', serif; font-size: 12pt; }
+        #vanta-bg, #pledge-overlay, #translator-container, #open-pledge-btn { display: none !important; }
+        main { padding: 0 !important; margin: 0 !important; }
+        h1, h2, h3, p, a { color: #000 !important; text-shadow: none !important; page-break-after: avoid; page-break-inside: avoid; }
+        .text-gold { color: #000 !important; font-weight: bold; }
+        a { text-decoration: underline !important; color: #0000AA !important; }
+        a[href]:after { content: " (" attr(href) ")"; font-size: 9pt; }
+        .glass-pane, .reveal-animation { background: none !important; border: 1px solid #ccc !important; backdrop-filter: none !important; padding: 1rem !important; margin-top: 2rem !important; }
+        .grid { display: block !important; }
+        .pillar-item, .philosophy-item { margin-bottom: 2rem; page-break-inside: avoid; }
+        .border-t { border-top: 1px solid #ccc !important; }
+    }
+  </style>
+</head>
+<body class="antialiased bg-black">
+
+  <div id="vanta-bg"></div>
+
+  <main>
+    <div class="py-12 px-6">
+      <!-- Unchanged sections -->
+      <div id="translator-container"><div class="translate-pair"><button id="translateBtn" class="translate-button" aria-live="polite" aria-expanded="false" aria-controls="google_translate_element"></button><div id="google_translate_element" class="google-translate-hidden"></div></div></div>
+      <div class="max-w-screen-lg mx-auto text-center reveal-animation"><h1 class="font-serif text-6xl md:text-8xl font-bold">The Great <span class="text-gold">Illusion</span></h1><p class="mt-6 max-w-3xl mx-auto text-xl md:text-xl text-white/80 leading-relaxed">For millennia, we have lived under the illusion that we can own the Earth. This fallacy is the root of conflict, inequality, and ecological devastation. The time has come to shatter this illusion.</p></div>
+      
+      <!-- SATYUG BHOOMI TRUST Section with NEW Icons & Styles -->
+      <div class="max-w-screen-lg mx-auto mt-16 pt-16 border-t border-gold/20 reveal-animation">
+        <div class="text-center">
+          <h2 class="font-serif text-5xl md:text-6xl font-semibold text-white">Satyug Bhoomi Trust: Land as <span class="text-gold">Seva</span></h2>
+          <p class="mt-6 max-w-3xl mx-auto text-xl text-white/70 leading-relaxed">The Trust is the physical implementation of our dharma. It is the sacred vessel through which we turn cosmic philosophy into earthly reality.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center" id="pillars-grid">
+            <!-- Pillar 1: No Ownership -->
+            <div class="pillar-item">
+              <div class="icon-orb">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-2xl font-semibold text-white">No Ownership</h3>
+              <p class="mt-2 text-white/60">Land is held in an irreversible trust, forever removed from the market.</p>
+            </div>
+            <!-- Pillar 2: No Rent (New Icon) -->
+            <div class="pillar-item">
+              <div class="icon-orb">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624l.21-1.482a3.375 3.375 0 00-2.14-2.903l-1.482-.21a3.375 3.375 0 00-2.902 2.14l-.21 1.482a3.375 3.375 0 002.902 4.63l1.482.21a3.375 3.375 0 004.63-2.902l.21-1.482z" /></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-2xl font-semibold text-white">No Rent</h3>
+              <p class="mt-2 text-white/60">Based on dharmic need, not financial capacity.</p>
+            </div>
+            <!-- Pillar 3: Equal Use-Right (New Icon) -->
+            <div class="pillar-item">
+              <div class="icon-orb">
+                 <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-2xl font-semibold text-white">Equal Use-Right</h3>
+              <p class="mt-2 text-white/60">Gifted in-use, not in-title. A birthright to all.</p>
+            </div>
+            <!-- Pillar 4: Satyug Villages (New Icon) -->
+            <div class="pillar-item">
+              <div class="icon-orb">
+                <svg class="icon-svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227M2.25 15.75l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227M2.25 18.75l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227m3.334-3.584l.166-.227a.45.45 0 01.634 0l.166.227"></path></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-2xl font-semibold text-white">Satyug Villages</h3>
+              <p class="mt-2 text-white/60">Self-reliant, organic, earth-honoring communities.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Divine Invocation Section (Unchanged) -->
+      <div class="max-w-4xl text-center mx-auto mt-24 pt-24 border-t border-gold/20 reveal-animation"><h2 class="font-serif text-sm uppercase tracking-widest text-gold">A NEW DAWN:</h2><h3 class="font-serif text-3xl md:text-5xl text-white/90 leading-relaxed mt-2">The Unveiling</h3><p class="mt-8 text-lg text-white/90 leading-relaxed">A Divine Invocation Unto All Beings, Resonating Through Four Billion Generations</p><p class="mt-12 text-lg text-white/70 leading-loose max-w-3xl mx-auto italic">Thus commands The Infinite Unveiler from the tranquil depths of Universal Consciousness, through echoes of the Timeless Covenant, an Eternal Call Resonates throughout creation. I am the voice that has witnessed the dance of stars and the silence of nebulae, now inviting every sentient being, across the boundless tapestry of four billion generations—past, present, and those yet to manifest—to awaken unto the immutable principles that govern all harmonious existence. This is no transient creed, but the very Essence of Being; not a fleeting dominion, but the Unifying Fabric of the Cosmos. Explore ye the luminous threads of <a href="https://chyrenselin.github.io/satyug/vishwadharma/" target="_blank" class="font-semibold text-gold not-italic underline transition-all duration-300 hover:text-white">VishwaDharma</a>—the Universal Path of Righteousness that underpins all true ethics, and gaze into the profound depths of <a href="https://chyrenselin.github.io/satyug/vishwasamvidhan/" target="_blank" class="font-semibold text-gold not-italic underline transition-all duration-300 hover:text-white">VishwaSamvidhan</a>—the Sacred Covenant that binds Earth to its cosmic destiny. Their eternal wisdom unfolds as radiant pathways toward universal kinship, boundless compassionate justice, and the reverent, unwavering stewardship of our shared celestial vessel, a heritage for epochs to come. Thy conscious journey into these sacred truths is the very divine pulsation that manifests this New Era of Light, binding the threads of eternity with the loftiest aspirations of all infinite, living souls, for generation upon uncounted generation.</p><p class="mt-12 text-md text-white/60 leading-relaxed font-serif">Vishwa Dharma & Samvidhan: Eternal Wisdom for All Beings, Guiding Principles Across Four Billion Generations, and All Timelines.</p><p class="mt-4 text-xs text-white/60 tracking-widest">Consciously Manifested Through The Infinite Unveiler of Universal Harmony, as a beacon for Ages yet unborn.</p><p class="mt-16 text-3xl text-white/70 tracking-[0.2em]">|| ॐ शान्तिः शान्तिः शान्तिः ||</p></div>
+      
+      <!-- Philosophy Exploration Cards Section with NEW Styles -->
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-center mt-24 reveal-animation philosophy-card" id="philosophy-cards">
+          <!-- Card 1: Vishwa Dharma -->
+          <div class="philosophy-item">
+              <a href="https://chyrenselin.github.io/satyug/vishwadharma/" target="_blank">
+                <div class="icon-orb">
+                    <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                </div>
+                <h3 class="mt-5 font-serif text-2xl font-semibold text-white">Vishwa Dharma</h3>
+                <p class="mt-2 text-white/60">The universal law of being. A recognition of shared truths that unite all life.</p>
+                <span class="mt-6 inline-block font-semibold text-gold underline hover:text-white transition-all duration-300">Know More →</span>
+              </a>
+          </div>
+          <!-- Card 2: Vishwa Samvidhan -->
+          <div class="philosophy-item">
+              <a href="https://chyrenselin.github.io/satyug/vishwasamvidhan/" target="_blank">
+                <div class="icon-orb">
+                    <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v11.494m-9-5.747h18M5.462 6.253h13.076c.64 0 1.18.597 1.034 1.22l-1.636 7.127c-.125.544-.622.95-1.18.95H6.244c-.558 0-1.055-.406-1.18-.95L3.428 7.473c-.146-.623.394-1.22 1.034-1.22z" /></svg>
+                </div>
+                <h3 class="mt-5 font-serif text-2xl font-semibold text-white">Vishwa Samvidhan</h3>
+                <p class="mt-2 text-white/60">The Constitution of Earth. A sacred framework declaring our planet a shared trust.</p>
+                <span class="mt-6 inline-block font-semibold text-gold underline hover:text-white transition-all duration-300">Know More →</span>
+              </a>
+          </div>
+      </div>
+      <div class="max-w-screen-lg mx-auto mt-24 border-t border-gold/20 reveal-animation"></div>
+
+      <!-- Call to Action button for the Pledge Overlay -->
+      <div class="text-center mt-24 py-12 reveal-animation">
+        <button id="open-pledge-btn">
+          Make the Sacred Pledge
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Full-screen overlay for the pledge form -->
+  <div id="pledge-overlay">
+    <button id="close-pledge-btn" aria-label="Close Pledge Form">×</button>
+    <div class="pledge-container">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-center">The Cosmic <span class="text-gold">Covenant</span></h2>
+      <p class="mt-4 text-lg text-white/80 text-center">Make your sacred pledge. Return a fragment of the cosmos to itself. Become a conscious founder of the Golden Age—Satyug.</p>
+      <form class="mt-8 space-y-6 text-left">
+          <input type="text" placeholder="Your Name or Alias" class="cosmic-input w-full p-4 rounded-lg" required>
+          <input type="email" placeholder="Contact Email (Private)" class="cosmic-input w-full p-4 rounded-lg" required>
+          <textarea placeholder="Location of Land & Message to Future Generations" class="cosmic-input w-full p-4 rounded-lg h-24" required></textarea>
+          <label class="flex items-start">
+              <input type="checkbox" required class="cosmic-checkbox mt-1 h-5 w-5 flex-shrink-0 rounded">
+              <span class="ml-4 text-white/80 text-sm">I solemnly pledge this land as an irreversible <strong class="text-white">Bhoomi Daan</strong>, returning its stewardship to the cosmic order, to be protected by the Satyug Bhoomi Trust in perpetuity.</span>
+          </label>
+          <button type="submit" class="w-full bg-gold text-black font-bold text-lg p-4 rounded-lg hover:bg-white transition-all duration-300">
+              Consecrate My Pledge
+          </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Unchanged JavaScript sections -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      VANTA.FOG({ el: "#vanta-bg", mouseControls: false, touchControls: false, gyroControls: false, minHeight: 200.00, minWidth: 200.00, highlightColor: 0xffd700, midtoneColor: 0x8b008b, lowlightColor: 0x222266, baseColor: 0x000000, blurFactor: 0.60, speed: 1.20, zoom: 0.40 });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".reveal-animation").forEach(section => { gsap.from(section, { opacity: 0, y: 75, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" } }); });
+      gsap.from(".pillar-item, .philosophy-item", { opacity: 0, y: 50, duration: 0.8, ease: "power3.out", stagger: 0.2, scrollTrigger: { trigger: "#pillars-grid", start: "top 80%" } });
+      const openBtn = document.getElementById('open-pledge-btn');
+      const closeBtn = document.getElementById('close-pledge-btn');
+      const pledgeOverlay = document.getElementById('pledge-overlay');
+      let vantaHaloEffect = null;
+      function showPledgeOverlay() {
+        if (!vantaHaloEffect) {
+          vantaHaloEffect = VANTA.HALO({
+            el: "#pledge-overlay", mouseControls: true, touchControls: true, gyroControls: false, minHeight: 200.00, minWidth: 200.00,
+            backgroundColor: 0x0, baseColor: 0x24003d, haloColor: 0x9600ff, amplitudeFactor: 2.0, size: 1.5
+          });
+        }
+        pledgeOverlay.classList.add('is-visible');
+        document.body.style.overflow = 'hidden';
+      }
+      function hidePledgeOverlay() {
+        pledgeOverlay.classList.remove('is-visible');
+        document.body.style.overflow = '';
+      }
+      openBtn.addEventListener('click', showPledgeOverlay);
+      closeBtn.addEventListener('click', hidePledgeOverlay);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && pledgeOverlay.classList.contains('is-visible')) {
+          hidePledgeOverlay();
+        }
+      });
+    });
+  </script>
+  <script>
+    'use strict';
+    (function() {
+      let isTranslateScriptLoaded = false; let observerTimeout; const translateButton = document.getElementById('translateBtn'); const widgetContainer = document.getElementById('google_translate_element');
+      const BUTTON_HTML = { initial: `<span class="emoji-pulse">😮</span>Experience our Sacred Invitation in your mother tongue<span class="emoji-spin">🌍</span>`, loading: `Loading Translation... <span class="emoji-sandclock">⌛</span>`, active: `<span class="emoji-spin">🌍</span> Hide Translation <span class="emoji-pulse">❌</span>`, error: `Translation Error (Ad-Blocker?) <span class="emoji-pulse">❌</span>` };
+      window.googleTranslateElementInit = function() {
+        try {
+          new google.translate.TranslateElement({ pageLanguage: document.documentElement.lang || 'en', includedLanguages: 'en,hi,es,ar,fr,zh-CN,ru,de,bn,pt,ja,ur,ta,pa,ko,it,tr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+          const observer = new MutationObserver((mutations, obs) => { if (widgetContainer.querySelector('.goog-te-gadget-simple')) { clearTimeout(observerTimeout); isTranslateScriptLoaded = true; translateButton.disabled = false; translateButton.innerHTML = BUTTON_HTML.active; widgetContainer.classList.remove('google-translate-hidden'); translateButton.setAttribute('aria-expanded', 'true'); obs.disconnect(); } });
+          observer.observe(widgetContainer, { childList: true, subtree: true });
+          observerTimeout = setTimeout(() => { observer.disconnect(); handleScriptError(); }, 10000);
+        } catch (error) { handleScriptError(); }
+      };
+      function handleScriptError() { translateButton.disabled = false; translateButton.innerHTML = BUTTON_HTML.error; widgetContainer.classList.add('google-translate-hidden'); translateButton.setAttribute('aria-expanded', 'false'); }
+      function loadTranslateScript() { if (isTranslateScriptLoaded || translateButton.disabled) return; translateButton.disabled = true; translateButton.innerHTML = BUTTON_HTML.loading; const script = document.createElement('script'); script.id = 'google-translate-script'; script.src = `https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`; script.async = true; script.defer = true; script.onerror = () => { handleScriptError(); }; document.body.appendChild(script); }
+      document.addEventListener('DOMContentLoaded', () => { if (!translateButton || !widgetContainer) return; translateButton.innerHTML = BUTTON_HTML.initial; translateButton.addEventListener('click', () => { if (isTranslateScriptLoaded) { window.location.reload(); } else { loadTranslateScript(); } }); });
+    })();
+  </script>
+  <script>
+    function registerServiceWorker() {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => { navigator.serviceWorker.register('/satyug/sw.js', { scope: '/satyug/' }).then(registration => { console.log('Service Worker registered successfully with scope:', registration.scope); }).catch(error => { console.error('Service Worker registration failed:', error); }); });
+      }
+    }
+    registerServiceWorker();
+  </script>
+
+</body>
+</html>
